@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
-       "build":"echo sucess"
+    "start": "node index.js",
+     "build":"echo sucess"
   },
   "keywords": [],
   "author": "",
