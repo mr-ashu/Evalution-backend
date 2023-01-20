@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-     "build":"echo sucess"
+    "start": "nodemon index.js",
+    "build": "echo sucess"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "argon2": "^0.30.3",
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
