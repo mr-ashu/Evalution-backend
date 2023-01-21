@@ -6,7 +6,7 @@ const userSchema = new Schema({
     unique: true
   },
   password: String,
-  age: Number,
+ 
   role: {
     type: String,
     enum: ["Guests", "Employee", "HR"],
@@ -14,6 +14,6 @@ const userSchema = new Schema({
   }
 });
 
-const UserModel = model("public", userSchema);
+const UserModel = model("profile", userSchema);
 
 module.exports = UserModel;

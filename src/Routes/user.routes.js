@@ -3,31 +3,11 @@ const UserModel = require("../Schema/user.model");
 const jwt = require("jsonwebtoken");
 const argon2 = require("argon2");
 const app = express();
-// app.use(express.urlencoded({extended:true}))
+ 
 app.use(express.json())
-let blacklist = []
+ 
 
-const authMiddlewere = (req, res, next) => {
-  const token = req.headers.authorization;
-  if (!token) {
-    return res.send("token not found")
-  }
-  try {
-    const verification = jwt.verify(token, "SECRET12345");
-
-    if (verification.exp > new Date().getTime()) {
-      return res.send("token is expired");
-    }
-
-    if (blacklist.includes(token)) {
-      return res.send("token already used")
-    }
-    next()
-
-  } catch (e) {
-    return res.send(e.message)
-  }
-}
+ 
 app.get("/", async(req,res)=>{
   const user=await UserModel.find()
   res.send(user)
@@ -60,7 +40,7 @@ app.post("/login", async (req, res) => {
 
 // -----------------------------------------------------------------
 
-app.post("/signup", async (req, res) => {
+app.post("/register", async (req, res) => {
   const { email, password, name, age } = req.body;
 
   const hash = await argon2.hash(password)
